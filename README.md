@@ -16,6 +16,7 @@ This module serves as a simple example for starting developing ZF1 applications.
 
 ##Requirements
 - Zend Framework version (latest)
+- (optional) This module needs Twitter Bootstrap v3 in the "public" directory
 
 ##Installation
   1.Your ZF1 app has to mantain (more or less) the following folder structure:
