@@ -1,5 +1,6 @@
 UserModule
 ======
+Created by Florin Măcău
 
 UserModule is a simple user registration and authentication Zend Framework 1 module.
 
