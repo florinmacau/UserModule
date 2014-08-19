@@ -29,6 +29,7 @@ This module serves as a simple example for starting developing ZF1 applications.
 `-- public
 ```
   2.The UserModule has to be cloned in the "modules" directory
+
   3.A table is needed to store the users:
 ```
   CREATE TABLE IF NOT EXISTS `Users` (
