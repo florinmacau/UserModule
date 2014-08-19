@@ -1,0 +1,24 @@
+<?php $this->headTitle('User module') ?>
+<div class="container">
+    <h2>User Module</h2>
+    <?php $flashMessenger = Zend_Controller_Action_HelperBroker::getStaticHelper('FlashMessenger'); ?> 
+    <?php if ($flashMessenger->setNamespace('success')->hasMessages()): ?>
+        <div class="alert alert-success col-sm-4">
+            <?php foreach ($flashMessenger->getMessages() as $msg): ?>
+                <?php echo $msg ?>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+
+    <?php $auth = Zend_Auth::getInstance();
+    if ($auth->getIdentity()) : ?>
+        <div class="col-sm-12">
+    <?php echo $this->gravatar($auth->getIdentity()->Email); ?>
+        </div>
+        <div class="col-sm-12">
+    <?php echo $auth->getIdentity()->DisplayName; ?>
+        </div>
+        <div class="col-sm-2"><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'change-password')) ?>">Change Password</a></div>
+        <div class="col-sm-2"><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'change-email')) ?>">Change Email</a></div>
+<?php endif; ?>
+</div>

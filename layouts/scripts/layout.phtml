@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <head>
+        <?php echo $this->headTitle(); ?>
+        <?php echo $this->headLink()->appendStylesheet('/css/bootstrap.min.css');
+              //echo $this->headScript()->appendFile('/js/bootstrap.min.js'); ?>
+    </head>
+    <body>
+    <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="./" class="navbar-brand">User module</a>
+            </div>
+            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                <ul class="nav navbar-nav">
+                <?php $auth = Zend_Auth::getInstance(); if ($auth->getIdentity()): ?>
+                    <li>
+                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'logout')) ?>">Logout</a>
+                    </li>
+                <?php else: ?>
+                    <li>
+                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'register')) ?>">Register</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'login')) ?>">Login</a>
+                    </li>
+                <?php endif; ?>
+                </ul>
+            </nav>
+        </div>
+    </header>
+        <?php echo $this->layout()->content ?>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<?php $this->headTitle('Register user') ?>
+<div class="container">
+    <h2>Register</h2>
+    <div class="row">
+    <?php $flashMessenger = Zend_Controller_Action_HelperBroker::getStaticHelper('FlashMessenger'); ?> 
+    <?php if ($flashMessenger->setNamespace('success')->hasMessages()): ?>
+        <div class="alert alert-success col-sm-4">
+            <?php foreach ($flashMessenger->getMessages() as $msg): ?>
+                <?php echo $msg ?>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+    </div>
+    <?php echo $this->form; ?>
+</div>
