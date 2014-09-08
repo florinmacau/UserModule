@@ -4,6 +4,7 @@
  */
 class Service_UserAuth
 {
+    const BCRYPT_SALT = "userModule19njsnasd521";
 
     /**
      * Returns the authentication adapter for identity and credential given by parameter having the purpose to verify
@@ -15,6 +16,7 @@ class Service_UserAuth
      */
     public static function getAuthenticationAdapter($identity, $credential)
     {
+
         static $authAdapter;
 
         if ($authAdapter instanceof Zend_Auth_Adapter_DbTable) {
@@ -38,7 +40,7 @@ class Service_UserAuth
      */    
     public static function getHash($password)
     {
-        $optionsForHash = [ "salt" => "userModule19njsnasd521" ];
+        $optionsForHash = [ "salt" => static::BCRYPT_SALT];
         return password_hash($password, PASSWORD_BCRYPT, $optionsForHash);
     }
 }
